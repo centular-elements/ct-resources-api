@@ -1,0 +1,58 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../ct-core-utils/ct-api-provider-behaviour.html">
+<link rel="import" href="../ct-core-utils/ct-user-identity.html">
+
+<!--
+`ct-resources-api`
+API for resource management
+
+@demo demo/index.html
+-->
+
+<dom-module id="ct-resources-api">
+  <template>
+
+    <ct-user-identity id="identity"></ct-user-identity>
+
+    <iron-ajax id="getResources"></iron-ajax>
+
+  </template>
+
+  <script>
+      Polymer({
+          is: 'ct-resources-api',
+          behaviors: [CT.Behaviours.ApiProvider],
+
+          /**
+           * Get a Resource
+           *
+           * @param {{ String, resourceTypeId: string }} resourceTypeId
+           * @param {{ String, parentId: string }} parentId (optional)
+           * @returns {Promise}
+           */
+          getResources: function(resourceTypeId, parentId, pageNum, pageSize) {
+
+              var resourceTypeId = resourceTypeId || 'system.type.group',
+                  parentId = parentId || null,
+                  pageNum = pageNum || 0,
+                  pageSize = pageSize || 20,
+                  params = '';
+
+              params += '?resourceTypeId='+resourceTypeId;
+
+              if(parentId){
+                  params += '&parentId='+parentId;
+              }
+
+              params += '&pageNum='+pageNum;
+              params += '&pageSize='+pageSize;
+
+              this.$.getResources.url = this._url('/rights/resources'+params);
+              return this._generateRequest(this.$.getResources);
+          },
+
+      });
+  </script>
+
+</dom-module>
