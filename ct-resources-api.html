@@ -27,8 +27,11 @@ API for resource management
           /**
            * Get a Resource
            *
-           * @param {{ String, resourceTypeId: string }} resourceTypeId
-           * @param {{ String, parentId: string }} parentId (optional)
+           * @param { String } resourceTypeId
+           * @param { String } [parentId]
+           * @param {String} pageNum=0
+           * @param {String} [pageSize=20]
+           *
            * @returns {Promise}
            */
           getResources: function(resourceTypeId, parentId, pageNum, pageSize) {
