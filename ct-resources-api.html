@@ -51,7 +51,7 @@ API for resource management
               params += '&page_number='+pageNum;
               params += '&page_size='+pageSize;
 
-              this.$.getResources.url = this._url('/rights/resources'+params);
+              this.$.getResources.url = this._url('/securables'+params);
               return this._generateRequest(this.$.getResources);
           },
 
