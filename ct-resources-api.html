@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../ct-core-utils/ct-api-provider-behaviour.html">
-<link rel="import" href="../ct-core-utils/ct-user-identity.html">
 
 <!--
 `ct-resources-api`
@@ -12,11 +11,7 @@ API for resource management
 
 <dom-module id="ct-resources-api">
   <template>
-
-    <ct-user-identity id="identity"></ct-user-identity>
-
     <iron-ajax id="getResources"></iron-ajax>
-
   </template>
 
   <script>
