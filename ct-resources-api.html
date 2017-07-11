@@ -24,7 +24,7 @@ API for resource management
            *
            * @param { String } resourceTypeId
            * @param { String } [parentId]
-           * @param {String} pageNum=0
+           * @param {String} pageNum=1
            * @param {String} [pageSize=20]
            *
            * @returns {Promise}
@@ -33,7 +33,7 @@ API for resource management
 
               var resourceTypeId = resourceTypeId || 'system.type.group',
                   parentId = parentId || null,
-                  pageNum = pageNum || 0,
+                  pageNum = pageNum || 1,
                   pageSize = pageSize || 20,
                   params = '';
 
